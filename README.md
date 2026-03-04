@@ -142,7 +142,7 @@ It provides a stepping stone toward hybrid AI–SNN systems and hardware-aware n
 
 ## Author
 
-Magnus Hjornhede
+Magnus H
 Göteborg · Sweden
 
 ```
