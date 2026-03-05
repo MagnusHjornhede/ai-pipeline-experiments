@@ -1,16 +1,34 @@
 # AI Pipeline and Neural Simulation
 
 
+A small project exploring two sides of machine learning:
+
+- building a structured data preprocessing pipeline  
+- simulating neuron dynamics with a Leaky Integrate-and-Fire model
+
+The goal is to connect **practical ML workflows** with **biologically inspired computation**.
+
+<br>
+
 ## Project Overview
 
-This repository combines structured machine learning preprocessing with biologically inspired neuron simulation.
+This repository contains two independent but related components.
 
-It demonstrates two complementary competencies:
+This repository contains two independent but related components.
 
-* Building a clean, reproducible data processing pipeline
-* Modeling neural dynamics using a Leaky Integrate-and-Fire (LIF) framework
+### 1. Gesture Data Pipeline
 
-The project bridges conventional AI workflows with neuromorphic computation concepts.
+A preprocessing pipeline for structured gesture datasets, focusing on feature organization, scaling, and diagnostics.
+
+### 2. Spiking Neuron Simulation
+
+A simple implementation of a **Leaky Integrate-and-Fire (LIF)** neuron model used to explore membrane dynamics and spike generation.
+
+Together they illustrate both:
+
+- practical machine learning data preparation  
+- fundamentals of neural computation
+
 <!--
 <p align="center">
   <img src="plots/pipeline_overview.png" alt="Pipeline Overview Diagram" width="750"/>
@@ -19,15 +37,17 @@ The project bridges conventional AI workflows with neuromorphic computation conc
 
 <br>
 
-## What This Project Shows
+## What This Project Demonstrates
 
-* Feature engineering and normalization for structured gesture data
-* Statistical diagnostics and visualization
-* Implementation of a biophysical neuron model
-* Parameter exploration and spike threshold analysis
-* Understanding of temporal integration and event-based computation
+This repository focuses on several practical topics:
 
-This repository is structured to reflect both analytical rigor and neural modeling insight.
+- feature engineering for structured sensor data  
+- dataset normalization and preprocessing  
+- statistical diagnostics and visualization  
+- simulation of a biophysical neuron model  
+- exploration of spike thresholds and temporal integration  
+
+The code is structured and documented to keep the workflow transparent and reproducible.
 
 <br>
 
@@ -44,12 +64,23 @@ The preprocessing pipeline operates on gesture datasets (`train-final.csv`, `tes
 
 ### Feature Structure
 
-The dataset is organized into four groups:
+The dataset contains **240 engineered features**, divided into four conceptual groups.
 
-1. **Joint Positions (1–60)** — raw spatial coordinates
-2. **Cosine Angles (61–120)** — geometric joint relationships
-3. **Mean Positions (121–180)** — average movement patterns
-4. **Standard Deviations (181–240)** — variability over time
+1. **Joint Positions (1–60)**  
+   Raw spatial coordinates from the gesture capture system.
+
+2. **Cosine Angles (61–120)**  
+   Angular relationships between joints.
+
+3. **Mean Positions (121–180)**  
+   Average spatial patterns over time.
+
+4. **Standard Deviations (181–240)**  
+   Temporal variability of joint movement.
+
+This structure allows the pipeline to analyze both **geometry** and **movement statistics**.
+
+
 
 #### Example Feature Distributions
 
@@ -75,13 +106,15 @@ These visualizations demonstrate structured variation across gesture types and v
 
 ## Part II — Spiking Neuron Simulation
 
-The second component implements a **Leaky Integrate-and-Fire (LIF)** neuron model to simulate membrane potential dynamics under controlled synaptic input.
+The second component implements a classic **Leaky Integrate-and-Fire (LIF)** neuron model.
+
+This model captures how biological neurons accumulate input current and emit spikes once a threshold is reached.
 
 ### Governing Equation
 
-[
-\tau_m \frac{du}{dt} = -(u - u_{rest}) + R \cdot I_{syn}
-]
+The membrane potential follows the standard LIF equation:
+
+$\tau_m \frac{du}{dt} = -(u - u_{rest}) + R \cdot I_{syn}$
 
 ### Parameter Configuration
 
@@ -101,40 +134,57 @@ The second component implements a **Leaky Integrate-and-Fire (LIF)** neuron mode
   <img src="plots/potential_build_up_example.png" width="720"/>
 </p>
 -->
-The neuron integrates synaptic input until the threshold is reached, then emits a spike and resets — modeling event-driven computation.
+The neuron integrates incoming current over time.
+
+Once the membrane potential reaches the spike threshold:
+
+1. a spike is emitted  
+2. the potential resets  
+3. integration continues
+
+This simple mechanism produces **event-driven computation**, which is the basis of many spiking neural network models.
 
 
 
-### Spike Threshold Analysis
+### Spike Threshold Exploration
 <!--
 <p align="center">
   <img src="plots/spike_threshold_search.png" width="720"/>
 </p>
 -->
-A systematic current sweep determines the minimal synaptic input required for sustained spiking (~160 pA).
+A current sweep experiment was performed to determine the minimal synaptic input required for sustained firing.
 
-This analysis demonstrates:
+The threshold was observed at approximately:
 
-* Sensitivity to input strength
-* Relationship between current amplitude and firing behavior
-* Practical exploration of neuron stability
+**~160 pA**
+
+This experiment illustrates:
+
+- sensitivity of firing behavior to input strength  
+- how neuron parameters influence stability  
+- how simple models can reproduce spike dynamics
 
 <br>
 
 ## Why This Project Matters
 
-Modern AI is moving toward:
+Modern machine learning research is increasingly interested in:
 
-* Event-driven processing
-* Energy-efficient computation
-* Neuromorphic hardware systems
+- event-driven computation  
+- energy-efficient AI systems  
+- neuromorphic hardware  
 
-This project reflects
+This project connects two perspectives:
 
-* Classical structured ML pipelines
-* Biophysical neural modeling foundations
+**structured ML data pipelines**
 
-It provides a stepping stone toward hybrid AI–SNN systems and hardware-aware neural architectures.
+and
+
+**biophysical neuron models**
+
+It explores how classical ML workflows and biologically inspired neuron models can be studied side by side.
+
+The project also provides a simple starting point for thinking about hybrid AI–SNN systems and neuromorphic computation.
 
 <br>
 
