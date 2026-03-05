@@ -1,6 +1,5 @@
 # AI Pipeline and Neural Simulation
 
----
 
 ## Project Overview
 
@@ -17,7 +16,8 @@ The project bridges conventional AI workflows with neuromorphic computation conc
   <img src="plots/pipeline_overview.png" alt="Pipeline Overview Diagram" width="750"/>
 </p>
 -->
----
+
+<br>
 
 ## What This Project Shows
 
@@ -29,7 +29,7 @@ The project bridges conventional AI workflows with neuromorphic computation conc
 
 This repository is structured to reflect both analytical rigor and neural modeling insight.
 
----
+<br>
 
 ## Part I — Gesture Data Pipeline
 
@@ -71,7 +71,7 @@ The dataset is organized into four groups:
 
 These visualizations demonstrate structured variation across gesture types and validate the engineered feature design.
 
----
+<br>
 
 ## Part II — Spiking Neuron Simulation
 
@@ -93,7 +93,7 @@ The second component implements a **Leaky Integrate-and-Fire (LIF)** neuron mode
 | u_reset   | Reset potential        | −65 mV |
 | u_thres   | Spike threshold        | −50 mV |
 
----
+
 
 ### Membrane Potential Integration
 <!--
@@ -103,7 +103,7 @@ The second component implements a **Leaky Integrate-and-Fire (LIF)** neuron mode
 -->
 The neuron integrates synaptic input until the threshold is reached, then emits a spike and resets — modeling event-driven computation.
 
----
+
 
 ### Spike Threshold Analysis
 <!--
@@ -119,7 +119,7 @@ This analysis demonstrates:
 * Relationship between current amplitude and firing behavior
 * Practical exploration of neuron stability
 
----
+<br>
 
 ## Why This Project Matters
 
@@ -136,9 +136,7 @@ This project reflects
 
 It provides a stepping stone toward hybrid AI–SNN systems and hardware-aware neural architectures.
 
----
-
----
+<br>
 
 ## Author
 
